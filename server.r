@@ -8,7 +8,7 @@ function(input, output) {
   urlfile<-'http://raw.githubusercontent.com/pburgoine/FPL_data/master/FPLdata1617.csv'
   dsin<-read.csv(urlfile)
   
-  keepCols <- reactive({c("Player","Team",paste("GW",input$gameWeek,sep=""),paste("CAP",input$gameWeek,sep=""),paste("PLAY",input$gameWeek,sep=""))})
+  keepCols <- reactive({c("Player","Team","Color",paste("GW",input$gameWeek,sep=""),paste("CAP",input$gameWeek,sep=""),paste("PLAY",input$gameWeek,sep=""))})
 
   
   dataset <- reactive({subset(dsin,select=keepCols())})
@@ -19,13 +19,13 @@ function(input, output) {
     #p <- bubbles(value = dataset()[,3], label = dataset()$Player)
     # install.packages("packcircles")
     
-    p <- circleProgressiveLayout(dataset()[,3])
+    p <- circleProgressiveLayout(dataset()[,4])
     d <- circleLayoutVertices(p)
     
     h<-ggplot(d, aes(x, y)) + 
       geom_polygon(aes(group = id, fill = id), show.legend = FALSE) +
-      geom_text(data = p, aes(x, y), label = dataset()$Player) +
-      scale_fill_distiller(palette = "RdGy") +
+      geom_text(data = p, aes(x, y), label = paste(dataset()$Player,dataset()[,4],"points",sep=" ")) +
+      scale_fill_distiller(palette = "Blues") +
       theme_void()
     print(h)
     
