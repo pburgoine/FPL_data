@@ -28,7 +28,7 @@ function(input, output) {
   
   output$smalltext<-renderText({
     
-    ifelse(input$gameWeek==8 | input$gameWeek==14,"Aguero scored -2 this gameweek"," ")
+    if(input$gameWeek==8) {"Aguero scored -2 this gameweek"} else if (input$gameWeek==14){"Aguero scored -2 & Amat scored -1 this gameweek"} else {" "}
     
   })
   

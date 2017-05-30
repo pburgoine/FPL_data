@@ -6,6 +6,7 @@ library(shinySignals)
 
 fluidPage(
   
+  tags$head(includeScript("google-analytics.js")),
   titlePanel("My FPL Data 2016/17"),
   
   sidebarPanel(
