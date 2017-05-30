@@ -1,6 +1,7 @@
 library(shiny)
-library(ggplot2)
-
+library(bubbles)
+library(dplyr)
+library(shinySignals)
 #dataset <- diamonds
 
 fluidPage(
@@ -14,6 +15,6 @@ fluidPage(
   ),
   
   mainPanel(
-    plotOutput('plot')
+    bubblesOutput("bubbles", width = "100%")
   )
 )
