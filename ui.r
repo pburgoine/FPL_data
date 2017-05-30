@@ -11,10 +11,13 @@ fluidPage(
   sidebarPanel(
     
     sliderInput('gameWeek', 'Gameweek', min=1, max=38,
-                value=1, step=1, round=0)
+                value=1, step=1, round=0),
+    selectInput('includeBench', 'Bench', c("Include","Exclude"))
   ),
   
   mainPanel(
-    bubblesOutput("bubbles", width = "100%")
+    bubblesOutput("bubbles", width = "100%"),
+    verbatimTextOutput('mean'),
+    verbatimTextOutput('smalltext')
   )
 )
