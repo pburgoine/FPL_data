@@ -12,7 +12,7 @@ function(input, output) {
   keepCols <- reactive({c("Player","Team","Color","Text_Color",paste("GW",input$gameWeek,sep=""),paste("CAP",input$gameWeek,sep=""),paste("PLAY",input$gameWeek,sep=""))})
 
   
-  dataset <- reactive({subset(dsin, !is.na(dsin[,5+input$gameWeek]) & (input$includeBench=="Include" | dsin[,81+input$gameWeek]=="Played") ,select=keepCols())})
+  dataset <- reactive({subset(dsin, !is.na(dsin[,5+input$gameWeek]) & dsin[,5+input$gameWeek]>=0 & (input$includeBench=="Include" | dsin[,81+input$gameWeek]=="Played") ,select=keepCols())})
   
   output$bubbles <- renderBubbles({
 
