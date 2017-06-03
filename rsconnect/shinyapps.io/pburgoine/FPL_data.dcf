@@ -3,9 +3,9 @@ title: FPL_data
 account: pburgoine
 server: shinyapps.io
 appId: 184821
-bundleId: 846377
+bundleId: 851088
 url: https://pburgoine.shinyapps.io/FPL_data/
-when: 1496184635.76457
+when: 1496433925.9286
 asMultiple: FALSE
 asStatic: FALSE
 ignoredFiles: FPLdata1617.csv|README.md
